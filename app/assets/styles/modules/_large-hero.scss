@@ -1,3 +1,85 @@
+//BEM overview:
+// - CSS selectors should target elements directly with classes, instead of relying on type selectors, descendent selectors and the cascade.
+// - Because we are limiting cascade we are free to move blocks around and reuse them throughout the page.
+// - Blocks can be nested inside other blocks.
+// - Identify patterns and then create single-responsibility blocks.
+// - Makes the relationship between our HTML and CSS clear.
+
+// Block - is an independent reusable part of our design
+// Element - belongs to a block. It cannot be used outside of the block that it belongs to.
+// Modifier can be used on a block or an element to indicate a change to the default state of an object .block-name--modifier-name
+
+//Block
 .large-hero {
   position: relative;
+  border-bottom: 10px solid $mainBlue;
+
+  &__image {
+    display: block; // after adding border (above) there was a tiny gap (image being inline)
+  }
+
+  //Element
+  &__text-content {
+    // thanks to & we can nest code and still follow BEM methodology (not using descendent selectors!)
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 300;
+    color: $mainBlue;
+    margin: 0;
+    font-size: 2.4rem;
+
+    @include atSmall {
+      font-size: 4.8rem;
+    }
+
+    // // mobile first way of writing css (set before as example but a bit overkill
+
+    // font-size: 1.1rem;
+
+    // @include atSmall {
+    //   //confusing name but just imagine default is "at smallest" (starting from 1px really!) and with next sizes being added 4.8rem won't stay here I guess? (was right as can see below!)
+    //   font-size: 2rem;
+    // }
+
+    // @include atMedium {
+    //   font-size: 3.2rem;
+    // }
+
+    // @include atLarge {
+    //   font-size: 4.8rem;
+    // }
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    color: $mainBlue;
+    margin: 0;
+    font-size: 1.5rem;
+
+    @include atSmall {
+      font-size: 2.9rem;
+    }
+  }
+
+  &__description {
+    color: #fff;
+    // font-size: 1.875rem; went to atSmall
+    font-size: 1.1rem;
+    font-weight: 100;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    max-width: 30rem; //480px but that wouldn't break lines in the same place if sb uses diff. font-sizein browser settings
+    margin-left: auto;
+    margin-right: auto;
+
+    @include atSmall {
+      font-size: 1.875rem;
+    }
+  }
 }

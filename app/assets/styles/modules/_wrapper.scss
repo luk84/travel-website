@@ -1,0 +1,27 @@
+.wrapper {
+  overflow: hidden;
+  padding-left: 18px;
+  padding-right: 18px;
+  max-width: 1236px; //attention to details - after adding global border-box we decreased this container by padding so now added
+  margin-left: auto; //added during working on #our-beginning (div but section actually?) cause on hero you don't see that yet
+  margin-right: auto;
+
+  &--medium {
+    max-width: 976px; //took from the design /actually same as img width (I inspected in devtools)
+  }
+
+  .wrapper {
+    // didn't look good on small devices as wrapper in wrapper doubled padding
+    // what about descending selectors (guess it's ok as an exception)?
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--b-margin {
+    margin-bottom: 1rem;
+
+    @include atSmall {
+      margin-bottom: 3.875rem;
+    }
+  }
+}

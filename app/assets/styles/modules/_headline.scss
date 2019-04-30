@@ -1,0 +1,50 @@
+.headline {
+  font-size: 1.9rem; // was 2.875, went atSmall
+  font-weight: 300;
+  color: $mainBlue;
+
+  @include atSmall {
+    font-size: 2.875rem; // meassured from .png design file, was 46px/16px gives rem (design is only to desktop thats why starts here then 1.9rem adjusted above)
+  }
+
+  &--centered {
+    text-align: center;
+  }
+
+  &--orange {
+    color: $mainOrange;
+  }
+
+  &--small {
+    font-size: 1.2rem; // was 1.875, now atSmall
+    @include atSmall {
+      font-size: 1.875rem; // again calculated form design
+    }
+  }
+
+  &--narrow {
+    max-width: 500px; // breaking text so shouldn't be in rems?
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &--light {
+    font-weight: 100;
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+  &--b-margin-small {
+    margin-bottom: 0.5em; // on text elements good to use em for margin as relative to element itself so will adjust depending on font-size
+  }
+
+  &--b-margin-large {
+    margin-bottom: 1.6em;
+  }
+
+  &--no-t-margin {
+    margin-top: 0;
+  }
+}

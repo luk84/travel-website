@@ -1,0 +1,40 @@
+.row {
+  @include clearfix;
+
+  &--gutters {
+    margin-right: -65px;
+  }
+
+  &--gutters > div {
+    // creates space between columns (2 divs) but actually we don't need that in the second div so one of many ways to handle that is above negative margin on parent and overflow hidden on wrapper
+    padding-right: 65px;
+  }
+
+  &__b-margin-until-medium {
+    margin-bottom: 1rem;
+  }
+
+  @include atMedium {
+    &__b-margin-until-medium {
+      margin-bottom: 0;
+    }
+
+    &__medium-4 {
+      float: left;
+      width: 33.33%;
+    }
+
+    &__medium-4--larger {
+      width: 37%;
+    }
+
+    &__medium-8 {
+      float: left;
+      width: 66.66%;
+    }
+
+    &__medium-8--smaller {
+      width: 63%; // subtle changes. The reason why we don't adjust rule but add new modufier is that we already plan to use orginal 33.3% in next sections (3 columns)
+    }
+  }
+}

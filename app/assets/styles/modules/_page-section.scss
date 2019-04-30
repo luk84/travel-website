@@ -1,0 +1,23 @@
+// gap between sections looked good only on big screen
+// .page-section {
+//   padding: 4.5rem 0;
+
+//   &--blue {
+//     background-color: $mainBlue;
+//     color: #fff;
+//   }
+// }
+
+//tuned like this so better on smaller
+.page-section {
+  padding: 1.2rem 0;
+
+  @include atMedium {
+    padding: 4.5rem 0;
+  }
+
+  &--blue {
+    background-color: $mainBlue;
+    color: #fff;
+  }
+}

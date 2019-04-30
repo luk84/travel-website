@@ -21,7 +21,7 @@
   <body>
     <header>
       <img src="assets/images/icons/clear-view-escapes.svg" alt="" />
-      <a href="#">Get in Touch</a>
+      <a href="#" class="btn">Get in Touch</a>
       <nav>
         <ul>
           <li><a href="#our-beginning">Our Beginning</a></li>
@@ -32,84 +32,199 @@
     </header>
 
     <div class="large-hero">
-      <img src="assets/images/hero--large.jpg" alt="" />
-      <h1>Your clarity.</h1>
-      <h2>One trip away.</h2>
-      <p>We create soul restoring journeys that inspire you to be you.</p>
-      <p><a href="#">Get Started Today</a></p>
+      <!-- could do bg image but decided to go with img element which fills whole .large-hero and text div (below) can be pos. absolute inside. Both ways good but this will be better for responsive images (more about it later) -->
+      <!-- <img src="assets/images/hero- -large.jpg" alt="" /> -->
+      <picture>
+        <!-- responsive images instead - will load diffenently cropped photo for different screen sizes and at each unique crop can send high DPI version if necessery (ex. 3840w for 4k monitor) -->
+        <source
+          srcset="
+            assets/images/hero--large.jpg        1920w,
+            assets/images/hero--large-hi-dpi.jpg 3840w
+          "
+          media="(min-width: 1380px)"
+        />
+        <source
+          srcset="
+            assets/images/hero--medium.jpg        1380w,
+            assets/images/hero--medium-hi-dpi.jpg 2760w
+          "
+          media="(min-width: 990px)"
+        />
+        <source
+          srcset="
+            assets/images/hero--small.jpg         990w,
+            assets/images/hero--small-hi-dpi.jpg 1980w
+          "
+          media="(min-width: 640px)"
+        />
+        <img
+          srcset="
+            assets/images/hero--smaller.jpg         640w,
+            assets/images/hero--smaller-hi-dpi.jpg 1280w
+          "
+          alt="Coastal view of ocean and mountains"
+          class="large-hero__image"
+        />
+      </picture>
+      <div class="large-hero__text-content">
+        <div class="wrapper">
+          <!-- wrapper added when created _wprapper.scss module - seems like will be reused later -->
+          <h1 class="large-hero__title">Your clarity.</h1>
+          <h2 class="large-hero__subtitle">One trip away.</h2>
+          <p class="large-hero__description">
+            We create soul restoring journeys that inspire you to be you.
+          </p>
+          <p>
+            <a href="#" class="btn btn--orange btn--large">Get Started Today</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- page-section class added later while seeing pattern in the design -->
+    <div id="our-beginning" class="page-section">
+      <div class="wrapper">
+        <!-- this is also a pattern so reused -->
+        <!-- wrapper reused here-->
+        <h2
+          class="headline headline--centered headline--light headline--b-margin-small"
+        >
+          The first trip we planned <strong>was our own.</strong
+          ><!-- shouldn't be span instead of strong?-->
+        </h2>
+        <h3
+          class="headline headline--centered headline--orange headline--small headline--narrow headline--light headline--b-margin-large"
+        >
+          <!-- reusable block headline-->
+          Ever since, we&rsquo;ve been working to make travel
+          <strong>better for everyone.</strong>
+        </h3>
+        <div class="wrapper wrapper--medium wrapper--b-margin">
+          <!-- remember sizes tells browser if image will take whole screen or not! 976px (max space image will take) for 970px res devices and more. But for lower res screens 100vw of device  -->
+          <img
+            sizes="(min-width: 970px) 976px, 100vw"
+            srcset="
+              assets/images/first-trip-low-res.jpg  565w,
+              assets/images/first-trip.jpg          976w,
+              assets/images/first-trip-hi-dpi.jpg  1952w
+            "
+            alt="Couple walking down a street."
+          />
+        </div>
+        <div class="row row--gutters">
+          <div
+            class="row__medium-4 row__medium-4--larger row__b-margin-until-medium"
+          >
+            <!-- from design devided row into 12 columns and img takes about 4 of 12 (medium added cause didn't look good at small and 2 columns will start from atMedium-->
+            <!-- then added modifier --larger cause in design image was a bit wider then 8/12 -->
+            <!-- then bottom margin but just for single column -->
+            <picture>
+              <!-- the problem with choosing low/hi dpi here (in hero it wasn't the case) is that browser assumes responsive image can take full screen and doesn't know its width is limited by css so unnecessarily downloads hdi image. We have to tell browser that. Sizez attribute s for that-->
+              <source
+                sizes="404px"
+                srcset="
+                  assets/images/our-start.jpg        404w,
+                  assets/images/our-start-hi-dpi.jpg 808w
+                "
+                media="(min-width: 1020px)"
+              />
+              <!-- these sizes can be just simply measured in browser -->
+              <source
+                sizes="320px"
+                srcset="
+                  assets/images/our-start-portrait.jpg        382w,
+                  assets/images/our-start-portrait-hi-dpi.jpg 764w
+                "
+                media="(min-width: 800px)"
+              />
+              <!-- sizes not needed below as in mobile image takes whole width of the browser!!! -->
+              <img
+                srcset="
+                  assets/images/our-start-landscape.jpg         800w,
+                  assets/images/our-start-landscape-hi-dpi.jpg 1600w
+                "
+                alt="Our founder, Jane Doe"
+              /><!-- img for mobile is first from the bottom, above source's for larger and larger screens-->
+            </picture>
+            <!-- above was just img with src but added extra photos cause was too high on mobile. For high dpi option in img also changed to srcset. Validation sais src is required so I guess can use both (especially that google (SEO) probably reads src?)-->
+          </div>
+          <div class="row__medium-8 row__medium-8--smaller">
+            <!-- 8 of 12 columns and then adjusted to be a bit smaller-->
+            <div class="generic-content-container">
+              <!-- BEM way would be to create a new class an add it to each paragraph but he doesn't agree as we can have dozens elements like that so only wrapped everything in additional div (like kontener ogolnej tresci). So for unique parts should use BEM but for generic/or coming from automated sources (CMS) may bend this rule a bit-->
+              <h2 class="headline headline--no-t-margin ">
+                Here&rsquo;s how we got started&hellip;
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam,
+                <a href="#">quis nostrud exercitation</a> ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <p>
+                Duis aute irure dolor in
+                <strong>reprehenderit in</strong> voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum velit esse cillum
+                <strong>dolore eu fugiat.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="our-beginning">
-      <h2>The first trip we planned was our own.</h2>
-      <h3>
-        Ever since, we&rsquo;ve been working to make travel better for everyone.
-      </h3>
-      <img
-        src="assets/images/first-trip.jpg"
-        alt="Couple walking down a street."
-      />
-      <img src="assets/images/our-start.jpg" alt="Our founder, Jane Doe" />
-      <h2>Here&rsquo;s how we got started&hellip;</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, <a href="#">quis nostrud exercitation</a> ullamco laboris nisi
-        ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Duis aute irure dolor in <strong>reprehenderit in</strong> voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </p>
-      <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        velit esse cillum <strong>dolore eu fugiat.</strong>
-      </p>
-    </div>
+    <div id="features" class="page-section page-section--blue">
+      <!-- pattern and added modifier for bgc -->
+      <div class="wrapper">
+        <!-- pattern so again reusable wrapper block-->
+        <img src="assets/images/icons/star.svg" alt="" />
+        <h2>Our Features</h2>
 
-    <div id="features">
-      <img src="assets/images/icons/star.svg" alt="" />
-      <h2>Our Features</h2>
+        <img src="assets/images/icons/rain.svg" alt="" />
+        <h3>We&rsquo;ll Watch the Weather</h3>
+        <p>
+          Download our app and we&rsquo;ll send you a notice if it&rsquo;s about
+          to rain in the next 20 minutes around your current location. A good
+          rain can be refreshing, but sometimes you just want to stay dry.
+        </p>
 
-      <img src="assets/images/icons/rain.svg" alt="" />
-      <h3>We&rsquo;ll Watch the Weather</h3>
-      <p>
-        Download our app and we&rsquo;ll send you a notice if it&rsquo;s about
-        to rain in the next 20 minutes around your current location. A good rain
-        can be refreshing, but sometimes you just want to stay dry.
-      </p>
+        <img src="assets/images/icons/globe.svg" alt="" />
+        <h3>Global Guides</h3>
+        <p>
+          We&rsquo;ve scoured the entire planet for the best retreats and
+          beautiful vistas. If there&rsquo;s a corner of the world you want to
+          escape to we know the most scenic and inspiring locations.
+        </p>
 
-      <img src="assets/images/icons/globe.svg" alt="" />
-      <h3>Global Guides</h3>
-      <p>
-        We&rsquo;ve scoured the entire planet for the best retreats and
-        beautiful vistas. If there&rsquo;s a corner of the world you want to
-        escape to we know the most scenic and inspiring locations.
-      </p>
+        <img src="assets/images/icons/wifi.svg" alt="" />
+        <h3>Wi-Fi Waypoints</h3>
+        <p>
+          We only send you on trips to places we can personally vouch for as
+          being amazing. Which means we&rsquo;ve mapped out where local wi-fi
+          spots are and marked them in our app&rsquo;s map view.
+        </p>
 
-      <img src="assets/images/icons/wifi.svg" alt="" />
-      <h3>Wi-Fi Waypoints</h3>
-      <p>
-        We only send you on trips to places we can personally vouch for as being
-        amazing. Which means we&rsquo;ve mapped out where local wi-fi spots are
-        and marked them in our app&rsquo;s map view.
-      </p>
-
-      <img src="assets/images/icons/fire.svg" alt="" />
-      <h3>Survival Kit</h3>
-      <p>
-        Everytime you book an escape with us we send you a survival kit with the
-        finest materials. The kit will allow you to setup a tent, start a fire,
-        scratch your own back and lower your taxes.
-      </p>
+        <img src="assets/images/icons/fire.svg" alt="" />
+        <h3>Survival Kit</h3>
+        <p>
+          Everytime you book an escape with us we send you a survival kit with
+          the finest materials. The kit will allow you to setup a tent, start a
+          fire, scratch your own back and lower your taxes.
+        </p>
+      </div>
     </div>
 
     <div id="testimonials">
@@ -153,7 +268,7 @@
     <footer>
       <p>
         Copyright &copy; 2016 Clear View Escapes. All rights reserved.
-        <a href="#">Get in Touch</a>
+        <a href="#" class="btn btn--orange">Get in Touch</a>
       </p>
     </footer>
   </body>
