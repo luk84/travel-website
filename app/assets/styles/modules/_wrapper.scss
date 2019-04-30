@@ -10,6 +10,28 @@
     max-width: 976px; //took from the design /actually same as img width (I inspected in devtools)
   }
 
+  &--no-padding-until-medium {
+    //left intact in case we want it in the future
+    padding-left: 0;
+    padding-right: 0;
+
+    @include atMedium {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+
+  &--no-padding-until-large {
+    //changed from medium to large as 3 columns too narrow at medium
+    padding-left: 0;
+    padding-right: 0;
+
+    @include atLarge {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+
   .wrapper {
     // didn't look good on small devices as wrapper in wrapper doubled padding
     // what about descending selectors (guess it's ok as an exception)?

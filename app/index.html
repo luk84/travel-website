@@ -263,42 +263,105 @@
       </div>
     </div>
 
-    <div id="testimonials">
-      <img src="assets/images/icons/comment.svg" alt="" />
-      <h2>Real Testimonials</h2>
+    <div
+      id="testimonials"
+      class="page-section page-section--no-b-padding-until-large page-section--testimonials"
+    >
+      <!-- vertical spacing for section from block page-section then modifer testimonials for bg-->
+      <div class="wrapper wrapper--no-padding-until-large">
+        <h2 class="section-title section-title--blue">
+          <!--section-title same as previous section just add modifier-->
+          <img
+            class="section-title__icon"
+            src="assets/images/icons/comment.svg"
+          />
+          <!-- icon also reused (previously helped us to position differently on small screen) -->
+          Real <strong>Testimonials</strong>
+        </h2>
+        <!-- BELOW: same pattern as previously. 3 equal columns and padding in --gutters -->
+        <!-- after giving testimonials photos negative top position have to use modif. --t-padding -->
+        <!-- row--gutters-small for less space between columns -->
+        <!-- row--equall-height-at-medium (changed later to large as 3 columns were too narrow) with flexbox will make testimonial cards equal height-->
+        <div
+          class="row row--gutters row--equall-height-at-large row--gutters-small row--t-padding generic-content-container"
+        >
+          <!-- row__large-4 changed from medium! as 3 columns too narrow on medium -->
+          <div class="row__large-4">
+            <div class="testimonial">
+              <div class="testimonial__photo">
+                <img
+                  sizes="160px"
+                  srcset="
+                    assets/images/testimonial-jane.jpg        160w,
+                    assets/images/testimonial-jane-hi-dpi.jpg 320w
+                  "
+                  alt="Jane Doe"
+                />
+              </div>
+              <h3 class="testimonial__title">Jane Doe</h3>
+              <h4 class="testimonial__subtitle">9 Time Escaper</h4>
+              <p>
+                &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.&rdquo;
+              </p>
+            </div>
+          </div>
 
-      <img src="assets/images/testimonial-jane.jpg" alt="" />
-      <h3>Jane Doe</h3>
-      <h3>9 Time Escaper</h3>
-      <p>
-        &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-        id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua.&rdquo;
-      </p>
+          <div class="row__large-4">
+            <div class="testimonial">
+              <div class="testimonial__photo">
+                <img
+                  sizes="160px"
+                  srcset="
+                    assets/images/testimonial-john.jpg        160w,
+                    assets/images/testimonial-john-hi-dpi.jpg 320w
+                  "
+                  alt="John Doe"
+                />
+              </div>
+              <h3 class="testimonial__title">John Smith</h3>
+              <h3 class="testimonial__subtitle">4 Time Escaper</h3>
+              <p>
+                &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur.&rdquo;
+              </p>
+            </div>
+          </div>
 
-      <img src="assets/images/testimonial-john.jpg" alt="" />
-      <h3>John Smith</h3>
-      <h3>4 Time Escaper</h3>
-      <p>
-        &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-        id est laborum. Lorem ipsum dolor sit amet, consectetur.&rdquo;
-      </p>
-
-      <img src="assets/images/testimonial-cat.jpg" alt="" />
-      <h3>Cat McKitty</h3>
-      <h3>6 Time Escaper</h3>
-      <p>
-        &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-        id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit, sed do eiusmod tempor incididunt ut.&rdquo;
-      </p>
+          <div class="row__large-4">
+            <!-- testimonial--last to remove bottom margin above footer which was created by separating cards-->
+            <div class="testimonial testimonial--last">
+              <div class="testimonial__photo">
+                <img
+                  sizes="160px"
+                  srcset="
+                    assets/images/testimonial-cat.jpg        160w,
+                    assets/images/testimonial-cat-hi-dpi.jpg 320w
+                  "
+                  alt="cat"
+                />
+              </div>
+              <h3 class="testimonial__title">Cat McKitty</h3>
+              <h3 class="testimonial__subtitle">6 Time Escaper</h3>
+              <p>
+                &ldquo;Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                ut.&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer>

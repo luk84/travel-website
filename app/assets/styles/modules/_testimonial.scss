@@ -1,0 +1,43 @@
+.testimonial {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 18px 1px 18px;
+  margin-bottom: 98px; // added cause testimonial photo was moved (80px + 18px just extra)
+
+  @include atLarge {
+    // was medium here but changed as 3 columns too narrow (in other places left medium for future, here no hmmm :/)
+    margin-bottom: 0; // reset above for larger screens
+    padding: 0 1.8125rem 1px 1.8125rem; //this bottom 1px is interesting. Symbolic but thanks to that margin of <p> works. If here was 0, margin wouldn't have anything to push up against (would leak outside of its container?).
+  }
+
+  &--last {
+    margin-bottom: 0; //reduced most of the gap before footer. rest is from page-section so modify there
+  }
+
+  &__photo {
+    // all styles on div container not img itself but seems like it can be done this way (maybe a bit harder way):)
+    border-radius: 80px;
+    overflow: hidden;
+    width: 160px; // same as width of img
+    height: 160px;
+    margin: 0 auto -80px auto; //negative bottom margin tu pull text content higher (as it doesn't see image with position relative -80px)
+    position: relative;
+    top: -80px; //
+    border: 6px solid rgba(255, 255, 255, 0.8);
+  }
+
+  &__title {
+    color: $mainBlue;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__subtitle {
+    color: $mainOrange;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    margin: 0.25rem 0 1rem 0;
+  }
+}
