@@ -1,8 +1,9 @@
 //without classes inside (and descendening a bit) so against BEM but here it's fine
 .generic-content-container {
   p {
+    font-weight: 300;
     line-height: 1.65; // doesn't require an unit of measurement
-    margin: 1.8rem 0;
+    margin: 0 0 1.8rem 0;
 
     @include atSmall {
       font-size: 1.125rem; // moved to atSmall and above as default 1rem
