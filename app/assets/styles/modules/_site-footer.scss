@@ -1,0 +1,18 @@
+.site-footer {
+  background-color: $mainBlue;
+  color: #fff;
+  padding: 0.5rem 0; // another strange situation. Without it margin of p in footer was going outside  footer (white stripes outside blue foter). Can add even tiny padding and is good.
+  text-align: center;
+
+  &__text {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 200;
+
+    @include atMedium {
+      display: inline;
+      margin-bottom: 0;
+      margin-right: 1.4rem;
+    }
+  }
+}
