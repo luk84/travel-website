@@ -1,0 +1,56 @@
+.primary-nav {
+  padding-top: 10px; //added later when mobile menu links got their bgc
+
+  @include atMedium {
+    padding-top: 0;
+  }
+
+  &--pull-right {
+    @include atMedium {
+      float: right;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    @include clearfix;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 7px;
+
+    @include atMedium {
+      float: left;
+      display: block;
+      padding-right: 20px;
+    }
+  }
+
+  li:last-child {
+    padding-right: 0;
+
+    @include atMedium {
+      padding-right: 20px;
+    }
+  }
+
+  a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    display: block;
+    //padding: 12px 0; // manually adjusted in devtools
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    background-color: rgba($mainBlue, 0.5);
+
+    @include atMedium {
+      font-size: 1rem;
+      padding: 12px 0;
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.site-header {
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  transition: background-color 0.3s ease-out;
+
+  &--is-expanded {
+    background-color: rgba($mainBlue, 0.55);
+  }
+
+  @include atMedium {
+    background-color: rgba($mainBlue, 0.3);
+    // this is invalid in css but sass will convert hex to rgb and alpha is .3
+  }
+
+  &__btn-container {
+    @include atMedium {
+      float: right;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0; //added as padding in .site-header pushed it down a bit
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    transform-origin: 50% 0;
+    // transform: translate(-50%, -10%) scale(0.8); // my way with 10% Y also good
+    background-color: $mainBlue;
+    padding: 25px 36px;
+
+    @include atMedium {
+      left: auto; //back to default values
+      transform: translateX(0);
+    }
+  }
+
+  &__menu-icon {
+    width: 20px;
+    height: 19px; //adjusted from 20 so equal spaces bet. ham. lines
+    // background-color: #fff; // was just for test before creating hamburger
+    position: absolute;
+    z-index: 10; //just should be higher than for menu-content--is-visible
+    top: 10px;
+    right: 10px;
+
+    &::before {
+      // was extra div here (same with after)
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transform-origin: 0 0;
+      transition: transform 0.3s ease-out;
+    }
+
+    &__middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s ease-out;
+      transform-origin: 0 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transform-origin: 0 100%;
+      transition: transform 0.3s ease-out;
+    }
+
+    @include atMedium {
+      display: none;
+    }
+  }
+
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
+
+    .site-header__menu-icon__middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+  }
+
+  &__menu-content {
+    // display: none; transition doesn't work on display
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
+    position: relative;
+    z-index: -10; // invisible still could be clicked
+    padding-top: 90px;
+    text-align: center;
+
+    @include atMedium {
+      // display: block;
+      padding-top: 0;
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
+    }
+
+    &--is-visible {
+      // display: block;
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
+    }
+  }
+}

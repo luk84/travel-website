@@ -24,9 +24,14 @@
     position: absolute;
     top: 50%;
     left: 0;
+    padding-top: 75px; // here more as header not visible on mobile, adjust to centered logo that is higher now
     transform: translateY(-50%);
     width: 100%;
     text-align: center;
+
+    @include atMedium {
+      padding-top: 60px; // added after styling header that is 60px high
+    }
   }
 
   &__title {

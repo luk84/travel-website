@@ -1,3 +1,5 @@
+<!-- i didn't use svg and svg sprites here. When I learn it can come back. There is good example in original project with this header img <img src="assets/images/icons/clear-view-escapes.svg" alt="" />. He has only div in html with text from logo (SEO reasons), hides it and image from svg loads automaticly-->
+
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -19,16 +21,36 @@
     <link rel="stylesheet" href="temp/styles/styles.css" />
   </head>
   <body>
-    <header>
-      <img src="assets/images/icons/clear-view-escapes.svg" alt="" />
-      <a href="#" class="btn">Get in Touch</a>
-      <nav>
-        <ul>
-          <li><a href="#our-beginning">Our Beginning</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="wrapper">
+        <div class="site-header__logo">
+          <!-- wonder why container for this img and btn bellow. Couldn't use classes directly on these?-->
+          <img src="assets/images/icons/clear-view-escapes.svg" alt="" />
+        </div>
+
+        <div class="site-header__menu-icon">
+          <!-- added empty div - icon for mobile. Actually was empty till creating hamburger lines-->
+          <!-- <div class="site-header__menu-icon__top"></div> -->
+          <div class="site-header__menu-icon__middle"></div>
+          <!-- <div class="site-header__menu-icon__bottom"></div> -->
+        </div>
+
+        <div class="site-header__menu-content">
+          <!--created to hide together nav and btn on mobile -->
+          <div class="site-header__btn-container">
+            <a href="#" class="btn">Get in Touch</a>
+          </div>
+          <nav class="primary-nav primary-nav--pull-right">
+            <!-- could be element of site-header but we can nest blocks and horizontal links feels very generic content (common in design) so can reuse it. Here we want it pos. to the right but do it with modifier pull-right as reusing we may want different place-->
+            <!--following BEM below would have elements: __list and __item for each li but he sais primary-nav block has a very specyfic purpose to style list of navigation links so hard to imagine how using generic type selectors and descendent selectors would have any unwanted side effects (ul>li structure will be always inside) -->
+            <ul>
+              <li><a href="#our-beginning">Our Beginning</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <div class="large-hero">
@@ -375,5 +397,7 @@
         </p>
       </div>
     </footer>
-  </body>
+    <!-- file bundled by webpack. Don't know much about it yet but managed to configure so bundels here. Can have modules/many js files now -->
+    <script src="temp/scripts/App.js"></script>
+  <body>
 </html>
