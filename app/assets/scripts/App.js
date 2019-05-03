@@ -1,6 +1,13 @@
 import MobileMenu from "./modules/MobileMenu";
+import RevealOnScroll from "./modules/RevealOnScroll";
+import $ from "jquery";
 
 var mobileMenu = new MobileMenu();
+// below was like this:
+// var revealOnScroll = new RevealOnScroll();
+//but we want 2 instances (for feature items and testimonials) so:
+new RevealOnScroll($(".feature-item"), "85%");
+new RevealOnScroll($(".testimonial"), "60%");
 
 //that were hypothetical examples, will leave it here
 
