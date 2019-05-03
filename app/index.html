@@ -38,16 +38,23 @@
         <div class="site-header__menu-content">
           <!--created to hide together nav and btn on mobile -->
           <div class="site-header__btn-container">
-            <a href="#" class="btn">Get in Touch</a>
+            <a href="#" class="btn open-modal">Get in Touch</a>
+            <!-- open-modal class added cause quite unique and obvoius and couldn't use btn for that as may have many diff. kind buttons -->
           </div>
           <nav class="primary-nav primary-nav--pull-right">
             <!-- could be element of site-header but we can nest blocks and horizontal links feels very generic content (common in design) so can reuse it. Here we want it pos. to the right but do it with modifier pull-right as reusing we may want different place-->
             <!--following BEM below would have elements: __list and __item for each li but he sais primary-nav block has a very specyfic purpose to style list of navigation links so hard to imagine how using generic type selectors and descendent selectors would have any unwanted side effects (ul>li structure will be always inside) -->
             <ul>
-              <li><a href="#our-beginning" id="our-beginning-link">Our Beginning</a></li>
-              <!-- added our-beginning-link id for smooth scrolling then in section added custom attribute, same with rest of the links -->
+              <li>
+                <a href="#our-beginning" id="our-beginning-link"
+                  >Our Beginning</a
+                >
+              </li>
+              <!-- added our-beginning-link id for displaying current/active page, then in section added custom attribute, same with rest of the links -->
               <li><a href="#features" id="features-link">Features</a></li>
-              <li><a href="#testimonials" id="testimonials-link">Testimonials</a></li>
+              <li>
+                <a href="#testimonials" id="testimonials-link">Testimonials</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -98,14 +105,20 @@
             We create soul restoring journeys that inspire you to be you.
           </p>
           <p>
-            <a href="#" class="btn btn--orange btn--large">Get Started Today</a>
+            <a href="#" class="btn btn--orange btn--large open-modal"
+              >Get Started Today</a
+            >
           </p>
         </div>
       </div>
     </div>
     <!-- page-section class added later while seeing pattern in the design -->
-    <div id="our-beginning" class="page-section" data-matching-link="#our-beginning-link">
-      <!-- above added custom attribute for smooth scrolling-->
+    <div
+      id="our-beginning"
+      class="page-section"
+      data-matching-link="#our-beginning-link"
+    >
+      <!-- above added custom attribute for displaying current/active page -->
       <div class="wrapper">
         <!-- this is also a pattern so reused -->
         <!-- wrapper reused here-->
@@ -210,7 +223,11 @@
       </div>
     </div>
 
-    <div id="features" class="page-section page-section--blue" data-matching-link="#features-link">
+    <div
+      id="features"
+      class="page-section page-section--blue"
+      data-matching-link="#features-link"
+    >
       <!-- pattern and added modifier for bgc -->
       <div class="wrapper">
         <!-- pattern so again reusable wrapper block-->
@@ -289,7 +306,8 @@
 
     <div
       id="testimonials"
-      class="page-section page-section--no-b-padding-until-large page-section--testimonials" data-matching-link="#testimonials-link"
+      class="page-section page-section--no-b-padding-until-large page-section--testimonials"
+      data-matching-link="#testimonials-link"
     >
       <!-- vertical spacing for section from block page-section then modifer testimonials for bg-->
       <div class="wrapper wrapper--no-padding-until-large">
@@ -298,6 +316,7 @@
           <img
             class="section-title__icon"
             src="assets/images/icons/comment.svg"
+            alt="Comment icon"
           />
           <!-- icon also reused (previously helped us to position differently on small screen) -->
           Real <strong>Testimonials</strong>
@@ -395,11 +414,65 @@
           <span class="site-footer__text">
             Copyright &copy; 2016 Clear View Escapes. All rights reserved.
           </span>
-          <a href="#" class="btn btn--orange">Get in Touch</a>
+          <a href="#" class="btn btn--orange open-modal">Get in Touch</a>
         </p>
       </div>
     </footer>
+    <!--  added later to create modal-->
+    <div class="modal">
+      <!--  h2 just copied from testimonials and adjusted. Then added p and style>-->
+      <!-- then added modifier --less-margin to h2, then modal inner to center vertically-->
+      <div class="modal__inner">
+        <h2
+          class="section-title section-title--blue section-title--less-margin"
+        >
+          <img
+            class="section-title__icon"
+            src="assets/images/icons/mail.svg"
+            alt="mail icon"
+          />
+          Get in <strong>Touch</strong>
+        </h2>
+        <!-- wrapper quite wide on large screens so modifier narrow -->
+        <div class="wrapper wrapper--narrow">
+          <p class="modal__description">
+            We will have an online order system in place soon. Until then,
+            connect with us on any of the platforms below!
+          </p>
+        </div>
+        <!-- didn't name social icons div in relation to modal (BEM perspective) but we may wanna use them somewhere else so why don't make it independent block-->
+        <div class="social-icons">
+          <a href="#" class="social-icons__icon"
+            ><img
+              class="icon icon--facebook"
+              src="assets/images/icons/facebook.svg"
+              alt="facebook icon"
+          /></a>
+          <a href="#" class="social-icons__icon"
+            ><img
+              class="icon icon--twitter"
+              src="assets/images/icons/twitter.svg"
+              alt="twitter icon"
+          /></a>
+          <a href="#" class="social-icons__icon"
+            ><img
+              class="icon icon--instagram"
+              src="assets/images/icons/instagram.svg"
+              alt="instagram icon"
+          /></a>
+          <a href="#" class="social-icons__icon"
+            ><img
+              class="icon icon--youtube"
+              src="assets/images/icons/youtube.svg"
+              alt="youtube icon"
+          /></a>
+        </div>
+      </div>
+
+      <div class="modal__close">X</div>
+    </div>
+
     <!-- file bundled by webpack. Don't know much about it yet but managed to configure so bundels here. Can have modules/many js files now -->
     <script src="temp/scripts/App.js"></script>
-  <body>
+  </body>
 </html>

@@ -10,6 +10,10 @@
     max-width: 976px; //took from the design /actually same as img width (I inspected in devtools)
   }
 
+  &--narrow {
+    max-width: 470px;
+  }
+
   &--no-padding-until-medium {
     //left intact in case we want it in the future
     padding-left: 0;

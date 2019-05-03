@@ -1,0 +1,52 @@
+.modal {
+  position: fixed;
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.94);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden; // so couldn't click. Opacity just makes it transparent. In other place (hamburger menu?) he used negative z-index (wonder if visiblity would be ok there)
+  transform: scale();
+  transition: all 0.3s ease-out;
+
+  &--is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale();
+  }
+
+  &__inner {
+    position: absolute;
+    width: 100%; // as absolute always shrinks
+    top: 50%;
+    transform: translateY(
+      -50%
+    ); // still a bit too low cause section-title has modifier lower botom margin so will adjust there
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    transform: scaleX(1.2);
+
+    transform-origin: 100% 0; // so scaled expands to the left and not decrease margin on the right
+    color: $mainBlue;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: $mainOrange;
+    }
+  }
+}
