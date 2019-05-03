@@ -12,6 +12,11 @@
   @include atMedium {
     background-color: rgba($mainBlue, 0.3);
     // this is invalid in css but sass will convert hex to rgb and alpha is .3
+    position: fixed; //made nav fixed when scroll but have to use different color when scrolling down a bit as not enough contrast
+
+    &--dark {
+      background-color: rgba(23, 51, 72, 0.85);
+    }
   }
 
   &__btn-container {
@@ -25,6 +30,7 @@
     top: 0; //added as padding in .site-header pushed it down a bit
     left: 50%;
     transform: translateX(-50%) scale(0.95);
+    transition: transform 0.3s ease-out; // works for logo on scroll
     transform-origin: 50% 0;
     // transform: translate(-50%, -10%) scale(0.8); // my way with 10% Y also good
     background-color: $mainBlue;
@@ -33,6 +39,11 @@
     @include atMedium {
       left: auto; //back to default values
       transform: translateX(0);
+
+      // great stuff here!! .site-header--dark is class added through js and '&' here means .site-header__logo so this selector works only when class is added
+      .site-header--dark & {
+        transform: scale(0.545);
+      }
     }
   }
 

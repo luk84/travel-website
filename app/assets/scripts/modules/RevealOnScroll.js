@@ -44,6 +44,7 @@ class RevealOnScroll {
     this.itemsToReveal.each(function() {
       var currentItem = this;
       new Waypoint({
+        //have access to waypoint object cause imported waypoints
         element: currentItem,
         handler: function() {
           $(currentItem).addClass("reveal-item--is-visible");

@@ -44,9 +44,10 @@
             <!-- could be element of site-header but we can nest blocks and horizontal links feels very generic content (common in design) so can reuse it. Here we want it pos. to the right but do it with modifier pull-right as reusing we may want different place-->
             <!--following BEM below would have elements: __list and __item for each li but he sais primary-nav block has a very specyfic purpose to style list of navigation links so hard to imagine how using generic type selectors and descendent selectors would have any unwanted side effects (ul>li structure will be always inside) -->
             <ul>
-              <li><a href="#our-beginning">Our Beginning</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#our-beginning" id="our-beginning-link">Our Beginning</a></li>
+              <!-- added our-beginning-link id for smooth scrolling then in section added custom attribute, same with rest of the links -->
+              <li><a href="#features" id="features-link">Features</a></li>
+              <li><a href="#testimonials" id="testimonials-link">Testimonials</a></li>
             </ul>
           </nav>
         </div>
@@ -103,7 +104,8 @@
       </div>
     </div>
     <!-- page-section class added later while seeing pattern in the design -->
-    <div id="our-beginning" class="page-section">
+    <div id="our-beginning" class="page-section" data-matching-link="#our-beginning-link">
+      <!-- above added custom attribute for smooth scrolling-->
       <div class="wrapper">
         <!-- this is also a pattern so reused -->
         <!-- wrapper reused here-->
@@ -208,7 +210,7 @@
       </div>
     </div>
 
-    <div id="features" class="page-section page-section--blue">
+    <div id="features" class="page-section page-section--blue" data-matching-link="#features-link">
       <!-- pattern and added modifier for bgc -->
       <div class="wrapper">
         <!-- pattern so again reusable wrapper block-->
@@ -287,7 +289,7 @@
 
     <div
       id="testimonials"
-      class="page-section page-section--no-b-padding-until-large page-section--testimonials"
+      class="page-section page-section--no-b-padding-until-large page-section--testimonials" data-matching-link="#testimonials-link"
     >
       <!-- vertical spacing for section from block page-section then modifer testimonials for bg-->
       <div class="wrapper wrapper--no-padding-until-large">
