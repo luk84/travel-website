@@ -19,6 +19,8 @@
       content="Your clarify. One trip away. We create soul restoring journeys that inspire you to be you."
     />
     <link rel="stylesheet" href="temp/styles/styles.css" />
+    <!-- lazysizes needed before DOM loaded-->
+    <script src="temp/scripts/Vendor.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -138,8 +140,9 @@
         <div class="wrapper wrapper--medium wrapper--b-margin">
           <!-- remember sizes tells browser if image will take whole screen or not! 976px (max space image will take) for 970px res devices and more. But for lower res screens 100vw of device  -->
           <img
+            class="lazyload"
             sizes="(min-width: 970px) 976px, 100vw"
-            srcset="
+            data-srcset="
               assets/images/first-trip-low-res.jpg  565w,
               assets/images/first-trip.jpg          976w,
               assets/images/first-trip-hi-dpi.jpg  1952w
@@ -158,7 +161,7 @@
               <!-- the problem with choosing low/hi dpi here (in hero it wasn't the case) is that browser assumes responsive image can take full screen and doesn't know its width is limited by css so unnecessarily downloads hdi image. We have to tell browser that. Sizez attribute s for that-->
               <source
                 sizes="404px"
-                srcset="
+                data-srcset="
                   assets/images/our-start.jpg        404w,
                   assets/images/our-start-hi-dpi.jpg 808w
                 "
@@ -167,7 +170,7 @@
               <!-- these sizes can be just simply measured in browser -->
               <source
                 sizes="320px"
-                srcset="
+                data-srcset="
                   assets/images/our-start-portrait.jpg        382w,
                   assets/images/our-start-portrait-hi-dpi.jpg 764w
                 "
@@ -175,7 +178,8 @@
               />
               <!-- sizes not needed below as in mobile image takes whole width of the browser!!! -->
               <img
-                srcset="
+                class="lazyload"
+                data-srcset="
                   assets/images/our-start-landscape.jpg         800w,
                   assets/images/our-start-landscape-hi-dpi.jpg 1600w
                 "
@@ -304,9 +308,10 @@
       </div>
     </div>
 
+    <!-- can also use lazysizes for images added through css like below. lazyload class will change to lazyloaded -->
     <div
       id="testimonials"
-      class="page-section page-section--no-b-padding-until-large page-section--testimonials"
+      class="page-section page-section--no-b-padding-until-large page-section--testimonials lazyload"
       data-matching-link="#testimonials-link"
     >
       <!-- vertical spacing for section from block page-section then modifer testimonials for bg-->
@@ -332,9 +337,11 @@
           <div class="row__large-4">
             <div class="testimonial">
               <div class="testimonial__photo">
+                <!-- class lazyload and added data- for lazysizes package-->
                 <img
+                  class="lazyload"
                   sizes="160px"
-                  srcset="
+                  data-srcset="
                     assets/images/testimonial-jane.jpg        160w,
                     assets/images/testimonial-jane-hi-dpi.jpg 320w
                   "
@@ -358,8 +365,9 @@
             <div class="testimonial">
               <div class="testimonial__photo">
                 <img
+                  class="lazyload"
                   sizes="160px"
-                  srcset="
+                  data-srcset="
                     assets/images/testimonial-john.jpg        160w,
                     assets/images/testimonial-john-hi-dpi.jpg 320w
                   "
@@ -383,8 +391,9 @@
             <div class="testimonial testimonial--last">
               <div class="testimonial__photo">
                 <img
+                  class="lazyload"
                   sizes="160px"
-                  srcset="
+                  data-srcset="
                     assets/images/testimonial-cat.jpg        160w,
                     assets/images/testimonial-cat-hi-dpi.jpg 320w
                   "

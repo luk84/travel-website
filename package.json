@@ -4,9 +4,11 @@
   "dependencies": {
     "jquery": "^3.4.0",
     "jquery-smooth-scroll": "^2.2.0",
+    "lazysizes": "^5.0.0-beta2",
     "node-gyp": "^4.0.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^7.0.0",
+    "tar": "^4.4.8",
     "waypoints": "^4.0.1"
   },
   "description": "",

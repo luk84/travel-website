@@ -4,6 +4,7 @@ import smoothScroll from "jquery-smooth-scroll"; // that's a bit different than 
 
 class StickyHeader {
   constructor() {
+    // this.lazyImages = $(".lazyload"); //lazysizes by delaing images loading caused waypoints to break but seems it was the case with some older version
     this.siteHeader = $(".site-header");
     this.headerTriggerElement = $(".large-hero__title");
     this.createHeaderWaypoint();
@@ -11,7 +12,14 @@ class StickyHeader {
     this.headerLinks = $(".primary-nav a");
     this.createPageSectionWaypoints(); // methods listed here so waypoints were created as soon as page is loaded
     this.addSmoothScrolling();
+    // this.refreshWaypoints(); // not needed also (lazysizes)
   }
+
+  // refreshWaypoints() {
+  //   this.lazyImages.on("load", function() {
+  //     Waypoint.refreshAll(); //don't have to do the same for RevealOnScroll module as it works globaly (the way library was created)
+  //   });
+  // }
 
   addSmoothScrolling() {
     this.headerLinks.smoothScroll(); // jquery smooth scroll method

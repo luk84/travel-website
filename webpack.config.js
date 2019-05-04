@@ -1,10 +1,13 @@
 var path = require("path"); // path is native part of node.js
 
 module.exports = {
-  entry: "./app/assets/scripts/App.js",
+  entry: {
+    App: "./app/assets/scripts/App.js",
+    Vendor: "./app/assets/scripts/Vendor.js"
+  },
   output: {
-    path: path.resolve(__dirname, "./app/temp/scripts"), //will give absolute path on thois computer (webpack needs that)
-    filename: "App.js"
+    path: path.resolve(__dirname, "./app/temp/scripts"), //will give absolute path on this computer (webpack needs that)
+    filename: "[name].js"
   },
   module: {
     rules: [

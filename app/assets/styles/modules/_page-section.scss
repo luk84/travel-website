@@ -43,9 +43,12 @@
     background-color: #e0e6ef;
 
     @include atLarge {
-      background: url("../../../app/assets/images/testimonials-bg.jpg") top
-        center no-repeat;
-      background-size: cover;
+      // for lazysizes package (will download when scrolling close to element)
+      &.lazyloaded {
+        background: url("../../../app/assets/images/testimonials-bg.jpg") top
+          center no-repeat;
+        background-size: cover;
+      }
     }
   }
 }
