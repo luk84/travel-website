@@ -8,6 +8,7 @@
     "node-gyp": "^4.0.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^7.0.0",
+    "picturefill": "^3.0.3",
     "tar": "^4.4.8",
     "waypoints": "^4.0.1"
   },
@@ -15,8 +16,8 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass -w app/assets/styles/ -o app/temp/styles/ --recursive",
-    "build": "webpack --mode=production --watch",
-    "dev": "npm run sass & npm run build"
+    "webpack": "webpack --mode=production --watch",
+    "dev": "npm run sass & npm run webpack"
   },
   "keywords": [],
   "author": "",
